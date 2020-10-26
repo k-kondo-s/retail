@@ -1,0 +1,30 @@
+version: "3.7"
+services:
+    #     db:
+    #         image: mysql:5.7
+    #         ports:
+    #             - "3306:3306"
+    #         volumes:
+    #             # 初期データを投入するSQLが格納されているdir
+    #             - ./db/mysql_init:/docker-entrypoint-initdb.d
+    #             # 永続化するときにマウントするdir
+    #             - ./db/mysql_data:/var/lib/mysql
+    #         environment:
+    #             MYSQL_ROOT_PASSWORD: root
+    #             MYSQL_USER: test
+    #             MYSQL_PASSWORD: test
+    grafana:
+        image: grafana/grafana
+        user: "0"
+        volumes:
+            - ./grafana/data:/var/lib/grafana
+        ports:
+            - 3000:3000
+    api:
+        build:
+            context: .
+            dockerfile: src/abc/Dockerfile
+        volumes:
+            - ./src/abc/src
+        ports:
+            - 5000:5000

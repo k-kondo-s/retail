@@ -1,0 +1,49 @@
+{
+  "name": "cloudspout-button-panel",
+  "version": "7.0.4",
+  "description": "Panel for a single button",
+  "scripts": {
+    "clean": "rm -rf dist/",
+    "zip": "node zip.js",
+    "dist": "npm run build && npm run zip",
+    "build": "grafana-toolkit plugin:build",
+    "test": "grafana-toolkit plugin:test",
+    "dev": "grafana-toolkit plugin:dev",
+    "watch": "grafana-toolkit plugin:dev --watch",
+    "release": "release-it"
+  },
+  "repository": "github:cloudspout/cloudspout-button-panel",
+  "author": "CloudSpout LLC",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/cloudspout/cloudspout-button-panel/issues",
+    "email": "info@cloudspout.io"
+  },
+  "devDependencies": {
+    "@grafana/data": "7.0.1",
+    "@grafana/toolkit": "7.0.1",
+    "@grafana/ui": "^7.1.0",
+    "emotion": "10.0.27",
+    "npm-build-zip": "^1.0.2",
+    "release-it": "^13.6.5"
+  },
+  "engines": {
+    "node": ">=12 <13"
+  },
+  "release-it": {
+    "github": {
+      "release": true,
+      "assets": [
+        "dist/*.zip"
+      ]
+    },
+    "npm": {
+      "publish": false
+    },
+    "hooks": {
+      "after:bump": [
+        "npm run dist"
+      ]
+    }
+  }
+}

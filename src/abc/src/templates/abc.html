@@ -1,0 +1,13 @@
+{{product_category}}を{{price_kind}}でみたときに、以下には注意すべき。:
+
+{% for i in result_list %}
+{% if i.danger == True %}
+<li>{{i.category}}: 売り上げ構成比は{{i.ratio_sales}}%だけど、
+    リピート率は{{i.repeat_ratio}}%である。これを切り捨てると、
+    x人の顧客を失う可能性があり、
+    この中にはロイヤルカスタマーのyyyy(年間買い上げ額zzz,zzz円)が含まれている。
+</li>
+{% endif %}
+{% endfor %}
+
+(debug) 処理時間: {{processing_time}} 秒
