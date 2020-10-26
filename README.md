@@ -9,7 +9,7 @@
 - このレポジトリをgitコマンドでダウンロードします。
 
 ```bash
-git clone https://github.com/skydisc-dev/pj_retail_analytics_testbed.git
+git clone https://github.com/k-kondo-s/retail.git
 ```
 
 - ダウンロードしたディレクトリの中に入ります。
